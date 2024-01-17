@@ -431,8 +431,8 @@ class UNetModel(nn.Module):
         num_heads_upsample=-1,
         use_scale_shift_norm=False,
         resblock_updown=False,
-        use_new_attention_order=False,
-        conf=None,
+        use_new_attention_order=False
+        # conf=None,
     ):
         super().__init__()
 
@@ -454,7 +454,7 @@ class UNetModel(nn.Module):
         self.num_heads = num_heads
         self.num_head_channels = num_head_channels
         self.num_heads_upsample = num_heads_upsample
-        self.conf = conf
+        # self.conf = conf
 
         time_embed_dim = model_channels * 4
         self.time_embed = nn.Sequential(
@@ -630,12 +630,12 @@ class UNetModel(nn.Module):
         :return: an [N x C x ...] Tensor of outputs.
         """
 
-        if timesteps[0].item() > self.conf.diffusion_steps:
-            raise RuntimeError(
-                "timesteps larger than diffusion steps.",
-                timesteps[0].item(),
-                self.conf.diffusion_steps,
-            )
+        # if timesteps[0].item() > self.conf.diffusion_steps:
+        #     raise RuntimeError(
+        #         "timesteps larger than diffusion steps.",
+        #         timesteps[0].item(),
+        #         self.conf.diffusion_steps,
+        #     )
 
         hs = []
         emb = self.time_embed(timestep_embedding(timesteps, self.model_channels))

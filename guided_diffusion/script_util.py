@@ -121,8 +121,7 @@ def create_model_and_diffusion(
         dropout=dropout,
         resblock_updown=resblock_updown,
         use_fp16=use_fp16,
-        use_new_attention_order=use_new_attention_order,
-        conf=conf,
+        use_new_attention_order=use_new_attention_order
     )
     diffusion = create_gaussian_diffusion(
         diffusion_steps=diffusion_steps,
@@ -155,8 +154,7 @@ def create_model(
     resblock_updown=False,
     use_fp16=False,
     use_new_attention_order=False,
-    image_size_inference=None,
-    conf=None,
+    image_size_inference=None
 ):
     if channel_mult == "":
         if image_size == 512:
@@ -197,8 +195,7 @@ def create_model(
         num_heads_upsample=num_heads_upsample,
         use_scale_shift_norm=use_scale_shift_norm,
         resblock_updown=resblock_updown,
-        use_new_attention_order=use_new_attention_order,
-        conf=conf,
+        use_new_attention_order=use_new_attention_order
     )
 
 
