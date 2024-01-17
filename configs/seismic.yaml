@@ -65,3 +65,4 @@ dps:
     jump_n_sample: 1
 
 respace_interpolate: false
+class_cond: false
