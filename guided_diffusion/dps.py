@@ -139,7 +139,7 @@ class DPSSampler(SpacedDiffusion):
             raise ValueError(f"Unkown mode: {self.mode}")
 
         self.noiser = get_noise(
-            conf.get("dps.noise_type", "gaussian"), sigma=0.0001
+            conf.get("dps.noise_type", "gaussian"), sigma=conf.get("dps.sigma", 0.01)
         )  # zero-noise gaussian
         self.cond_method = get_conditioning_method(
             "ps", self.operator, self.noiser, scale=self.step_size
