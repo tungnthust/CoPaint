@@ -10,7 +10,7 @@ ddim:
   schedule_params:
     num_inference_steps: 250
     ddpm_num_steps: 250
-    schedule_type: cosine
+    schedule_type: linear
     jump_length: 1
     jump_n_sample: 1
     use_timetravel: false
